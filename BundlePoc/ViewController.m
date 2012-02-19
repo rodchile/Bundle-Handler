@@ -21,6 +21,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *imgName = @"SettingsPoc.bundle/images/lolcat7.gif";
+    UIImage *myImage = [UIImage imageNamed:imgName]; 
+    lolCat.image = myImage;
+    
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSBundle *bundle = [NSBundle bundleWithPath:[mainBundle pathForResource:@"SettingsPoc" ofType:@"bundle"]];
+    
+    NSString *pListPath2 = [bundle pathForResource:@"ColorsProperties" ofType:@"plist"];
+    NSDictionary *dictionary2 = [[NSDictionary alloc] initWithContentsOfFile:pListPath2];
+    NSArray *colors =[dictionary2 objectForKey:@"MB_WHITE_COLOR"];
+    NSNumber *red = [colors objectAtIndex:0];
+    NSNumber *green = [colors objectAtIndex:1];
+    NSNumber *blue = [colors objectAtIndex:2];
+    NSNumber *alpha = [colors objectAtIndex:3];
+    UIColor *testColor = [UIColor colorWithRed:[red floatValue]/255.0 green:[green floatValue]/255.0 blue:[blue floatValue]/255.0 alpha:[alpha floatValue]];
+    [actionButton setBackgroundColor:testColor];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

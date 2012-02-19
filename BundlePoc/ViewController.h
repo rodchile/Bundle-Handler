@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    UIButton *actionButton;
+    UIImageView *lolCat;
+}
+
+@property(nonatomic,retain) IBOutlet UIButton *actionButton;
+@property(nonatomic,retain) IBOutlet UIImageView *lolCat;
+
 
 @end
